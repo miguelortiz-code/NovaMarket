@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-04-2025 a las 03:04:20
+-- Tiempo de generación: 17-04-2025 a las 03:51:59
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -50,6 +50,87 @@ INSERT INTO `categories` (`id_category`, `name_category`, `title_list_category`,
 (4, 'Health and Beauty', '[\"Health\",\"Beauty\"]', 'health-beauty', 'health-beauty.jpg', 'icon-heart-pulse', 0, '2025-04-15', '2025-04-15 05:00:00'),
 (5, 'Jewelry and Watches', '[\"Jewelry\",\"Watches\"]', 'jewelry-watches', 'jewelry-watches.jpg', 'icon-diamond2', 0, '2025-04-15', '2025-04-15 05:00:00'),
 (6, 'Computer and Technology', '[\"Computer\",\"Technology\"]', 'computer-technology', 'computer-technology.jpg', 'icon-desktop', 0, '2025-04-15', '2025-04-15 05:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `disputes`
+--
+
+CREATE TABLE `disputes` (
+  `id_dispute` int(11) NOT NULL,
+  `id_order_dispute` int(11) DEFAULT NULL,
+  `stage_dispute` text DEFAULT NULL,
+  `transmitter_dispute` int(11) DEFAULT NULL,
+  `receiver_dispute` int(11) DEFAULT NULL,
+  `content_dispute` text DEFAULT NULL,
+  `answer_dispute` text DEFAULT NULL,
+  `date_created_dispute` date DEFAULT NULL,
+  `date_updated_dispute` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `disputes`
+--
+
+INSERT INTO `disputes` (`id_dispute`, `id_order_dispute`, `stage_dispute`, `transmitter_dispute`, `receiver_dispute`, `content_dispute`, `answer_dispute`, `date_created_dispute`, `date_updated_dispute`) VALUES
+(1, 1, 'reviewed', 1, 1, 'Lorem ipsum', 'Lorem Ipsum', '2025-04-15', '2025-04-16 04:03:34');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `messages`
+--
+
+CREATE TABLE `messages` (
+  `id_message` int(11) NOT NULL,
+  `id_product_message` int(11) DEFAULT NULL,
+  `transmitter_message` int(11) DEFAULT NULL,
+  `receiver_message` int(11) DEFAULT NULL,
+  `content_message` text DEFAULT NULL,
+  `answer_message` text DEFAULT NULL,
+  `date_created_message` date DEFAULT NULL,
+  `date_updated_message` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `messages`
+--
+
+INSERT INTO `messages` (`id_message`, `id_product_message`, `transmitter_message`, `receiver_message`, `content_message`, `answer_message`, `date_created_message`, `date_updated_message`) VALUES
+(1, 1, 1, 1, 'Lorem ipsum', 'Lorem Ipsum', '2025-04-15', '2025-04-16 04:03:42');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `orders`
+--
+
+CREATE TABLE `orders` (
+  `id_order` int(11) NOT NULL,
+  `id_store_order` int(11) DEFAULT NULL,
+  `id_user_order` int(11) DEFAULT NULL,
+  `id_product_order` int(11) DEFAULT NULL,
+  `details_order` text DEFAULT NULL,
+  `quantity_order` int(11) DEFAULT 0,
+  `price_order` float DEFAULT 0,
+  `email_order` text DEFAULT NULL,
+  `country_order` text DEFAULT NULL,
+  `city_order` text DEFAULT NULL,
+  `phone_order` text DEFAULT NULL,
+  `address_order` text DEFAULT NULL,
+  `process_order` text DEFAULT NULL,
+  `status_order` text DEFAULT NULL,
+  `date_created_order` date DEFAULT NULL,
+  `date_updated_order` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `orders`
+--
+
+INSERT INTO `orders` (`id_order`, `id_store_order`, `id_user_order`, `id_product_order`, `details_order`, `quantity_order`, `price_order`, `email_order`, `country_order`, `city_order`, `phone_order`, `address_order`, `process_order`, `status_order`, `date_created_order`, `date_updated_order`) VALUES
+(1, 1, 1, 1, '<div class=\"list-details small text-secondary\"><div>Color: Blue</div><div>Size: M</div></div>', 2, 205, 'gopro@gmail.com', 'United States', 'Florida', '(+053) 77-637-3300', '17 Queen St, Melbourne', '[{\"stage\":\"reviewed\",\"status\":\"ok\",\"comment\":\"We have received your order, we start delivery process\",\"date\":\"2020-06-22\"},{\"stage\":\"sent\",\"status\":\"pending\",\"comment\":\"\",\"date\":\"2020-06-27\"},{\"stage\":\"delivered\",\"status\":\"pending\",\"comment\":\"\",\"date\":\"2020-07-02\"}]', 'pending', '2025-04-15', '2025-04-16 04:03:52');
 
 -- --------------------------------------------------------
 
@@ -148,6 +229,64 @@ INSERT INTO `products` (`id_product`, `feedback_product`, `state_product`, `id_s
 INSERT INTO `products` (`id_product`, `feedback_product`, `state_product`, `id_store_product`, `id_category_product`, `id_subcategory_product`, `title_list_product`, `name_product`, `url_product`, `image_product`, `price_product`, `shipping_product`, `stock_product`, `delivery_time_product`, `offer_product`, `description_product`, `summary_product`, `details_product`, `specifications_product`, `gallery_product`, `video_product`, `top_banner_product`, `default_banner_product`, `horizontal_slider_product`, `vertical_slider_product`, `reviews_product`, `tags_product`, `sales_product`, `views_product`, `date_created_product`, `date_updated_product`) VALUES
 (46, '{\"type\":\"approved\", \"comment\":\"\"}', 'show', 1, 6, 46, 'technology', 'Samsung Gear VR Virtual Reality', 'samsung-gear-vr-virtual-reality', '2.jpg', 679.8, 5, 100, 10, '[\"Discount\",\"25\", \"2020-06-30\"]', ' <h5>Embodying the Raw, Wayward Spirit of Rock \'N\' Roll</h5>\n\n                                                    <p>Embodying the raw, wayward spirit of rock ‘n’ roll, the Kilburn portable active stereo speaker takes the unmistakable look and sound of Marshall, unplugs the chords, and takes the show on the road.</p>\n\n                                                    <p>Weighing in under 7 pounds, the Kilburn is a lightweight piece of vintage styled engineering. Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs for a sound that is both articulate and pronounced. The analogue knobs allow you to fine tune the controls to your personal preferences while the guitar-influenced leather strap enables easy and stylish travel.</p>\n\n                                                    <img class=\"mb-30\" src=\"assets/img/products/detail/content/description.jpg\" alt=\"\">\n\n                                                    <h5>What do you get</h5>\n\n                                                    <p>Sound of Marshall, unplugs the chords, and takes the show on the road.</p>\n\n                                                    <p>Weighing in under 7 pounds, the Kilburn is a lightweight piece of vintage styled engineering. Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs for a sound that is both articulate and pronounced. The analogue knobs allow you to fine tune the controls to your personal preferences while the guitar-influenced leather strap enables easy and stylish travel.</p>\n\n                                                    <p>The FM radio is perhaps gone for good, the assumption apparently being that the jury has ruled in favor of streaming over the internet. The IR blaster is another feature due for retirement – the S6 had it, then the Note5 didn’t, and now with the S7 the trend is clear.</p>\n\n                                                    <h5>Perfectly Done</h5>\n\n                                                    <p>Meanwhile, the IP68 water resistance has improved from the S5, allowing submersion of up to five feet for 30 minutes, plus there’s no annoying flap covering the charging port</p>\n                                                    \n                                                    <ul class=\"pl-0\">\n                                                        <li>No FM radio (except for T-Mobile units in the US, so far)</li>\n                                                        <li>No IR blaster</li>\n                                                        <li>No stereo speakers</li>\n                                                    </ul>\n\n                                                    <p>If you’ve taken the phone for a plunge in the bath, you’ll need to dry the charging port before plugging in. Samsung hasn’t reinvented the wheel with the design of the Galaxy S7, but it didn’t need to. The Gala S6 was an excellently styled device, and the S7 has managed to improve on that.</p>', '[\"Unrestrained and portable active stereo speaker\", \"Free from the confines of wires and chords\", \"20 hours of portable capabilities\", \"Double-ended Coil Cord with 3.5mm Stereo Plugs Included\", \"3/4 Dome Tweeters: 2X and 4 Woofer: 1X\"]', '[{\"title\":\"Color\",\"value\":\"Black, Gray\"},{\"title\":\"Style\",\"value\":\"Ear Hook\"},{\"title\":\"Wireless\",\"value\":\"Yes\"},{\"title\":\"Dimensions\",\"value\":\"5.5 x 5.5 x 9.5 inches\"},{\"title\":\"Weight\",\"value\":\"  6.61 pounds\"},{\"title\":\"Battery Life\",\"value\":\"20 hours\"},{\"title\":\"Bluetooth\",\"value\":\"Yes\"}]', '[{\"Color\":[\"Black\",\"White\",\"Blue\",\"Red\"]},{\"Size\":[\"S\",\"M\",\"L\"]}]', '[\"1.jpg\",\"2.jpg\",\"3.jpg\"]', '[\"youtube\",\"Sl5FaskVpD4\"]', '{\"H3 tag\":\"20%\",\"P1 tag\":\"Discount\", \"H4 tag\":\"For Books Of March\", \"P2 tag\":\"Enter Promotion\", \"Span tag\":\"Sale2019\",\"Button tag\":\"Shop now\",\"IMG tag\":\"header-promotion-1.jpg\"}', 'default-banner-2.jpg', '{\"H4 tag\":\"Limit Edition\", \"H3-1 tag\": \"Happy Summer\", \"H3-2 tag\": \"Combo Super Cool\", \"H3-3 tag\": \"Up to\", \"H3-4s tag\": \"40%\", \"Button tag\":\"Shop now\",\"IMG tag\": \"h-slider-2.jpg\"}', 'v-slider-2.jpg', '[{\"review\":4, \"comment\":\"Lorem Ipsum\"},{\"review\":5, \"comment\":\"Lorem Ipsum\"},{\"review\":4, \"comment\":\"Lorem Ipsum\"},{\"review\":3, \"comment\":\"Lorem Ipsum\"},{\"review\":4, \"comment\":\"Lorem Ipsum\"},{\"review\":5, \"comment\":\"Lorem Ipsum\"},{\"review\":5, \"comment\":\"Lorem Ipsum\"}]', '[\"sofa\",\"furniture\",\"home\"]', 20, 11, '0000-00-00', '2025-04-16 00:02:22'),
 (47, '{\"type\":\"approved\", \"comment\":\"\"}', 'show', 1, 6, 47, 'technology', 'Apple iPhone Retina 6s Plus 64GB', 'apple-iphone-retina-6s-plus-64gb', '3.jpg', 679.8, 5, 100, 10, '[\"Discount\",\"25\", \"2020-06-30\"]', ' <h5>Embodying the Raw, Wayward Spirit of Rock \'N\' Roll</h5>\n\n                                                    <p>Embodying the raw, wayward spirit of rock ‘n’ roll, the Kilburn portable active stereo speaker takes the unmistakable look and sound of Marshall, unplugs the chords, and takes the show on the road.</p>\n\n                                                    <p>Weighing in under 7 pounds, the Kilburn is a lightweight piece of vintage styled engineering. Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs for a sound that is both articulate and pronounced. The analogue knobs allow you to fine tune the controls to your personal preferences while the guitar-influenced leather strap enables easy and stylish travel.</p>\n\n                                                    <img class=\"mb-30\" src=\"assets/img/products/detail/content/description.jpg\" alt=\"\">\n\n                                                    <h5>What do you get</h5>\n\n                                                    <p>Sound of Marshall, unplugs the chords, and takes the show on the road.</p>\n\n                                                    <p>Weighing in under 7 pounds, the Kilburn is a lightweight piece of vintage styled engineering. Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs for a sound that is both articulate and pronounced. The analogue knobs allow you to fine tune the controls to your personal preferences while the guitar-influenced leather strap enables easy and stylish travel.</p>\n\n                                                    <p>The FM radio is perhaps gone for good, the assumption apparently being that the jury has ruled in favor of streaming over the internet. The IR blaster is another feature due for retirement – the S6 had it, then the Note5 didn’t, and now with the S7 the trend is clear.</p>\n\n                                                    <h5>Perfectly Done</h5>\n\n                                                    <p>Meanwhile, the IP68 water resistance has improved from the S5, allowing submersion of up to five feet for 30 minutes, plus there’s no annoying flap covering the charging port</p>\n                                                    \n                                                    <ul class=\"pl-0\">\n                                                        <li>No FM radio (except for T-Mobile units in the US, so far)</li>\n                                                        <li>No IR blaster</li>\n                                                        <li>No stereo speakers</li>\n                                                    </ul>\n\n                                                    <p>If you’ve taken the phone for a plunge in the bath, you’ll need to dry the charging port before plugging in. Samsung hasn’t reinvented the wheel with the design of the Galaxy S7, but it didn’t need to. The Gala S6 was an excellently styled device, and the S7 has managed to improve on that.</p>', '[\"Unrestrained and portable active stereo speaker\", \"Free from the confines of wires and chords\", \"20 hours of portable capabilities\", \"Double-ended Coil Cord with 3.5mm Stereo Plugs Included\", \"3/4 Dome Tweeters: 2X and 4 Woofer: 1X\"]', '[{\"title\":\"Color\",\"value\":\"Black, Gray\"},{\"title\":\"Style\",\"value\":\"Ear Hook\"},{\"title\":\"Wireless\",\"value\":\"Yes\"},{\"title\":\"Dimensions\",\"value\":\"5.5 x 5.5 x 9.5 inches\"},{\"title\":\"Weight\",\"value\":\"  6.61 pounds\"},{\"title\":\"Battery Life\",\"value\":\"20 hours\"},{\"title\":\"Bluetooth\",\"value\":\"Yes\"}]', '[{\"Color\":[\"Black\",\"White\",\"Blue\",\"Red\"]},{\"Size\":[\"S\",\"M\",\"L\"]}]', '[\"1.jpg\",\"2.jpg\",\"3.jpg\"]', '[\"youtube\",\"Sl5FaskVpD4\"]', '{\"H3 tag\":\"20%\",\"P1 tag\":\"Discount\", \"H4 tag\":\"For Books Of March\", \"P2 tag\":\"Enter Promotion\", \"Span tag\":\"Sale2019\",\"Button tag\":\"Shop now\",\"IMG tag\":\"header-promotion-1.jpg\"}', 'default-banner-3.jpg', '{\"H4 tag\":\"Limit Edition\", \"H3-1 tag\": \"Happy Summer\", \"H3-2 tag\": \"Combo Super Cool\", \"H3-3 tag\": \"Up to\", \"H3-4s tag\": \"40%\", \"Button tag\":\"Shop now\",\"IMG tag\": \"h-slider-3.jpg\"}', 'v-slider-3.jpg', '[{\"review\":4, \"comment\":\"Lorem Ipsum\"},{\"review\":5, \"comment\":\"Lorem Ipsum\"},{\"review\":4, \"comment\":\"Lorem Ipsum\"},{\"review\":3, \"comment\":\"Lorem Ipsum\"},{\"review\":4, \"comment\":\"Lorem Ipsum\"},{\"review\":5, \"comment\":\"Lorem Ipsum\"},{\"review\":5, \"comment\":\"Lorem Ipsum\"}]', '[\"sofa\",\"furniture\",\"home\"]', 10, 11, '0000-00-00', '2025-04-16 00:02:22');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `sales`
+--
+
+CREATE TABLE `sales` (
+  `id_sale` int(11) NOT NULL,
+  `id_order_sale` int(11) DEFAULT NULL,
+  `unit_price_sale` float DEFAULT 0,
+  `commision_sale` float DEFAULT 0,
+  `payment_method_sale` text DEFAULT NULL,
+  `id_payment_sale` text DEFAULT NULL,
+  `status_sale` text DEFAULT NULL,
+  `date_created_sale` date DEFAULT NULL,
+  `date_updated_sale` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `sales`
+--
+
+INSERT INTO `sales` (`id_sale`, `id_order_sale`, `unit_price_sale`, `commision_sale`, `payment_method_sale`, `id_payment_sale`, `status_sale`, `date_created_sale`, `date_updated_sale`) VALUES
+(1, 1, 700, 300, 'paypal', '123DSDA', 'pending', '2025-04-15', '2025-04-16 04:03:18');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `stores`
+--
+
+CREATE TABLE `stores` (
+  `id_store` int(11) NOT NULL,
+  `id_user_store` int(11) DEFAULT NULL,
+  `name_store` text DEFAULT NULL,
+  `url_store` text DEFAULT NULL,
+  `logo_store` text DEFAULT NULL,
+  `cover_store` text DEFAULT NULL,
+  `about_store` text DEFAULT NULL,
+  `abstract_store` text DEFAULT NULL,
+  `email_store` text DEFAULT NULL,
+  `country_store` text DEFAULT NULL,
+  `city_store` text DEFAULT NULL,
+  `address_store` text DEFAULT NULL,
+  `phone_store` text DEFAULT NULL,
+  `socialnetwork_store` text DEFAULT NULL,
+  `products_store` text DEFAULT NULL,
+  `date_created_store` date DEFAULT NULL,
+  `date_updated_store` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `stores`
+--
+
+INSERT INTO `stores` (`id_store`, `id_user_store`, `name_store`, `url_store`, `logo_store`, `cover_store`, `about_store`, `abstract_store`, `email_store`, `country_store`, `city_store`, `address_store`, `phone_store`, `socialnetwork_store`, `products_store`, `date_created_store`, `date_updated_store`) VALUES
+(1, 1, 'Digitalworld Us', 'digital-store', 'logo-1.jpg', 'cover-1.jpg', 'Digiworld US, New York’s no.1 online retailer was established in May 2012 with the aim and vision to become the one-stop shop for retail in New York with implementation of best practices both online…', 'Digiworld US, New York’s no.1 online retailer was established in May 2012 with the aim and vision to become the one-stop shop for retail in New York with implementation of best practices both online…', 'digitalworldus@gmail.com', 'United States', 'Miami', '325 Orchard Str, New York, NY 10002', '(+053) 77-637-3300', '{\"facebook\":\"https://facebook.com\",\"twitter\":\"https://twitter.com\",\"linkedin\":\"https://linkedin.com\"}', '47', '2025-04-15', '2025-04-16 03:41:49');
 
 -- --------------------------------------------------------
 
@@ -263,10 +402,40 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`id_category`);
 
 --
+-- Indices de la tabla `disputes`
+--
+ALTER TABLE `disputes`
+  ADD PRIMARY KEY (`id_dispute`);
+
+--
+-- Indices de la tabla `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id_message`);
+
+--
+-- Indices de la tabla `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id_order`);
+
+--
 -- Indices de la tabla `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id_product`);
+
+--
+-- Indices de la tabla `sales`
+--
+ALTER TABLE `sales`
+  ADD PRIMARY KEY (`id_sale`);
+
+--
+-- Indices de la tabla `stores`
+--
+ALTER TABLE `stores`
+  ADD PRIMARY KEY (`id_store`);
 
 --
 -- Indices de la tabla `subcategories`
@@ -291,10 +460,40 @@ ALTER TABLE `categories`
   MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT de la tabla `disputes`
+--
+ALTER TABLE `disputes`
+  MODIFY `id_dispute` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `id_message` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
   MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+
+--
+-- AUTO_INCREMENT de la tabla `sales`
+--
+ALTER TABLE `sales`
+  MODIFY `id_sale` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `stores`
+--
+ALTER TABLE `stores`
+  MODIFY `id_store` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `subcategories`

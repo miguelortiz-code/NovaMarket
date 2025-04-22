@@ -10,4 +10,12 @@ class RoutesController
     {
         include "routes/route.php";
     }
+
+    /*=============================================
+	Nombre de la base de datos
+	=============================================*/
+    static public function database()
+    {
+        return "novamarket_db";
+    }
 }

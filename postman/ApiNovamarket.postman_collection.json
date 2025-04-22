@@ -1,0 +1,746 @@
+{
+	"info": {
+		"_postman_id": "55043b5a-55a3-406c-b213-8fda1e5b181d",
+		"name": "ApiNovamarket",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38044668"
+	},
+	"item": [
+		{
+			"name": "GET sin Filtro",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.marketplace.com/categories?orderBy=id_category&orderMode=ASC&startAt=0&endAt=3",
+					"protocol": "http",
+					"host": [
+						"api",
+						"marketplace",
+						"com"
+					],
+					"path": [
+						"categories"
+					],
+					"query": [
+						{
+							"key": "orderBy",
+							"value": "id_category"
+						},
+						{
+							"key": "orderMode",
+							"value": "ASC"
+						},
+						{
+							"key": "startAt",
+							"value": "0"
+						},
+						{
+							"key": "endAt",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET con Filtro",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.marketplace.com/subcategories?linkTo=id_category_subcategory&equalTo=1&orderBy=id_subcategory&orderMode=DESC&startAt=0&endAt=3",
+					"protocol": "http",
+					"host": [
+						"api",
+						"marketplace",
+						"com"
+					],
+					"path": [
+						"subcategories"
+					],
+					"query": [
+						{
+							"key": "linkTo",
+							"value": "id_category_subcategory"
+						},
+						{
+							"key": "equalTo",
+							"value": "1"
+						},
+						{
+							"key": "orderBy",
+							"value": "id_subcategory"
+						},
+						{
+							"key": "orderMode",
+							"value": "DESC"
+						},
+						{
+							"key": "startAt",
+							"value": "0"
+						},
+						{
+							"key": "endAt",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET tablas relacionadas sin Filtro",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.marketplace.com/relations?rel=subcategories,categories&type=subcategory,category&orderBy=id_subcategory&orderMode=ASC&startAt=0&endAt=5",
+					"protocol": "http",
+					"host": [
+						"api",
+						"marketplace",
+						"com"
+					],
+					"path": [
+						"relations"
+					],
+					"query": [
+						{
+							"key": "rel",
+							"value": "subcategories,categories"
+						},
+						{
+							"key": "type",
+							"value": "subcategory,category"
+						},
+						{
+							"key": "orderBy",
+							"value": "id_subcategory"
+						},
+						{
+							"key": "orderMode",
+							"value": "ASC"
+						},
+						{
+							"key": "startAt",
+							"value": "0"
+						},
+						{
+							"key": "endAt",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET tablas relacionadas con Filtro",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.marketplace.com/relations?rel=products,categories,subcategories&type=product,category,subcategory&linkTo=id_category_product&equalTo=1&orderBy=id_product&orderMode=ASC&startAt=3&endAt=3",
+					"protocol": "http",
+					"host": [
+						"api",
+						"marketplace",
+						"com"
+					],
+					"path": [
+						"relations"
+					],
+					"query": [
+						{
+							"key": "rel",
+							"value": "products,categories,subcategories"
+						},
+						{
+							"key": "type",
+							"value": "product,category,subcategory"
+						},
+						{
+							"key": "linkTo",
+							"value": "id_category_product"
+						},
+						{
+							"key": "equalTo",
+							"value": "1"
+						},
+						{
+							"key": "orderBy",
+							"value": "id_product"
+						},
+						{
+							"key": "orderMode",
+							"value": "ASC"
+						},
+						{
+							"key": "startAt",
+							"value": "3"
+						},
+						{
+							"key": "endAt",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET para el Buscador",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.marketplace.com/products?linkTo=name_product&search=portable&orderBy=id_product&orderMode=DESC&startAt=0&endAt=1",
+					"protocol": "http",
+					"host": [
+						"api",
+						"marketplace",
+						"com"
+					],
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "linkTo",
+							"value": "name_product"
+						},
+						{
+							"key": "search",
+							"value": "portable"
+						},
+						{
+							"key": "orderBy",
+							"value": "id_product"
+						},
+						{
+							"key": "orderMode",
+							"value": "DESC"
+						},
+						{
+							"key": "startAt",
+							"value": "0"
+						},
+						{
+							"key": "endAt",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET para el Buscador entre tablas relacionadas",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.marketplace.com/relations?rel=products,categories,subcategories,stores&type=product,category,subcategory,store&linkTo=name_product&search=portable&orderBy=id_product&orderMode=DESC&startAt=0&endAt=1",
+					"protocol": "http",
+					"host": [
+						"api",
+						"marketplace",
+						"com"
+					],
+					"path": [
+						"relations"
+					],
+					"query": [
+						{
+							"key": "rel",
+							"value": "products,categories,subcategories,stores"
+						},
+						{
+							"key": "type",
+							"value": "product,category,subcategory,store"
+						},
+						{
+							"key": "linkTo",
+							"value": "name_product"
+						},
+						{
+							"key": "search",
+							"value": "portable"
+						},
+						{
+							"key": "orderBy",
+							"value": "id_product"
+						},
+						{
+							"key": "orderMode",
+							"value": "DESC"
+						},
+						{
+							"key": "startAt",
+							"value": "0"
+						},
+						{
+							"key": "endAt",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name_category",
+							"value": "Consumer Electric 2",
+							"type": "text"
+						},
+						{
+							"key": "title_list_category",
+							"value": "[\"Electronic\",\"Accessories and Parts\"]",
+							"type": "text"
+						},
+						{
+							"key": "url_category",
+							"value": "consumer-electric-2",
+							"type": "text"
+						},
+						{
+							"key": "image_category",
+							"value": "comsumer-electric2.jpg",
+							"type": "text"
+						},
+						{
+							"key": "icon_category",
+							"value": "icon-laundry",
+							"type": "text"
+						},
+						{
+							"key": "views_category",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "date_created_category",
+							"value": "2025-04-18",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://api.marketplace.com/categories?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDUwNDg0MzQsImV4cCI6MTc0NTA0ODQ5NCwiZGF0YSI6eyJpZCI6NCwiZW1haWwiOiJzYW50aWFnb0BnbWFpbC5jb20ifX0.PgNXrSVFE1D6bXEvMSSeFrANJMjPTD4rZKBxGB3nhYk",
+					"protocol": "http",
+					"host": [
+						"api",
+						"marketplace",
+						"com"
+					],
+					"path": [
+						"categories"
+					],
+					"query": [
+						{
+							"key": "orderBy",
+							"value": "id_category",
+							"disabled": true
+						},
+						{
+							"key": "orderMode",
+							"value": "ASC",
+							"disabled": true
+						},
+						{
+							"key": "startAt",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "endAt",
+							"value": "3",
+							"disabled": true
+						},
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDUwNDg0MzQsImV4cCI6MTc0NTA0ODQ5NCwiZGF0YSI6eyJpZCI6NCwiZW1haWwiOiJzYW50aWFnb0BnbWFpbC5jb20ifX0.PgNXrSVFE1D6bXEvMSSeFrANJMjPTD4rZKBxGB3nhYk"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST registro",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "rol_user",
+							"value": "default",
+							"type": "text"
+						},
+						{
+							"key": "displayname_user",
+							"value": "Santiago Quintero",
+							"type": "text"
+						},
+						{
+							"key": "username_user",
+							"value": "santiagoquintero",
+							"type": "text"
+						},
+						{
+							"key": "password_user",
+							"value": "santiago123",
+							"type": "text"
+						},
+						{
+							"key": "email_user",
+							"value": "santiago@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "date_created_user",
+							"value": "2025-04-19",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://api.marketplace.com/users?register=true",
+					"protocol": "http",
+					"host": [
+						"api",
+						"marketplace",
+						"com"
+					],
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "register",
+							"value": "true"
+						},
+						{
+							"key": "orderMode",
+							"value": "ASC",
+							"disabled": true
+						},
+						{
+							"key": "startAt",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "endAt",
+							"value": "3",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST inicio de sesión",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email_user",
+							"value": "santiago@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password_user",
+							"value": "santiago123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://api.marketplace.com/users?login=true",
+					"protocol": "http",
+					"host": [
+						"api",
+						"marketplace",
+						"com"
+					],
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "login",
+							"value": "true"
+						},
+						{
+							"key": "orderMode",
+							"value": "ASC",
+							"disabled": true
+						},
+						{
+							"key": "startAt",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "endAt",
+							"value": "3",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT ",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name_category",
+							"value": "Consumer Electric 4",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "title_list_category",
+							"value": "[\"Electronic\",\"Accessories and Parts\"]",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "url_category",
+							"value": "consumer-electric-4",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "image_category",
+							"value": "comsumer-electric4.jpg",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "icon_category",
+							"value": "icon-laundry",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "views_category",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "date_created_category",
+							"value": "2025-04-18",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://api.marketplace.com/categories?id=11&nameId=id_category&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDUwNDQzMjEsImV4cCI6MTc0NTEzMDcyMSwiZGF0YSI6eyJpZCI6NCwiZW1haWwiOiJzYW50aWFnb0BnbWFpbC5jb20ifX0.liQxMM9K78RgU_sz9aVauMNEAMwlOP8re0D9ym-iyY8",
+					"protocol": "http",
+					"host": [
+						"api",
+						"marketplace",
+						"com"
+					],
+					"path": [
+						"categories"
+					],
+					"query": [
+						{
+							"key": "orderBy",
+							"value": "id_category",
+							"disabled": true
+						},
+						{
+							"key": "orderMode",
+							"value": "ASC",
+							"disabled": true
+						},
+						{
+							"key": "startAt",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "endAt",
+							"value": "3",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "11"
+						},
+						{
+							"key": "nameId",
+							"value": "id_category"
+						},
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDUwNDQzMjEsImV4cCI6MTc0NTEzMDcyMSwiZGF0YSI6eyJpZCI6NCwiZW1haWwiOiJzYW50aWFnb0BnbWFpbC5jb20ifX0.liQxMM9K78RgU_sz9aVauMNEAMwlOP8re0D9ym-iyY8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name_category",
+							"value": "Consumer Electric 4",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "title_list_category",
+							"value": "[\"Electronic\",\"Accessories and Parts\"]",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "url_category",
+							"value": "consumer-electric-4",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "image_category",
+							"value": "comsumer-electric4.jpg",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "icon_category",
+							"value": "icon-laundry",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "views_category",
+							"value": "3",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "date_created_category",
+							"value": "2025-04-18",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://api.marketplace.com/categories?nameId=id_category&id=11&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDUwNDQzMjEsImV4cCI6MTc0NTEzMDcyMSwiZGF0YSI6eyJpZCI6NCwiZW1haWwiOiJzYW50aWFnb0BnbWFpbC5jb20ifX0.liQxMM9K78RgU_sz9aVauMNEAMwlOP8re0D9ym-iyY8",
+					"protocol": "http",
+					"host": [
+						"api",
+						"marketplace",
+						"com"
+					],
+					"path": [
+						"categories"
+					],
+					"query": [
+						{
+							"key": "orderBy",
+							"value": "id_category",
+							"disabled": true
+						},
+						{
+							"key": "orderMode",
+							"value": "ASC",
+							"disabled": true
+						},
+						{
+							"key": "startAt",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "endAt",
+							"value": "3",
+							"disabled": true
+						},
+						{
+							"key": "nameId",
+							"value": "id_category"
+						},
+						{
+							"key": "id",
+							"value": "11"
+						},
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDUwNDQzMjEsImV4cCI6MTc0NTEzMDcyMSwiZGF0YSI6eyJpZCI6NCwiZW1haWwiOiJzYW50aWFnb0BnbWFpbC5jb20ifX0.liQxMM9K78RgU_sz9aVauMNEAMwlOP8re0D9ym-iyY8"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
